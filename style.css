@@ -120,6 +120,18 @@ svg {
 }
 
 /* Utility classes */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .text-primary-400 {
   color: var(--clr-primary-400)
 }
@@ -240,4 +252,50 @@ body {
 .button[data-type='inverted']:focus-visible {
   background-color: var(--clr-neutral-100);
   color: var(--clr-accent-300);
+}
+
+/* Navigation */
+.primary-header {
+  padding-top: var(--size-700);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* Not mobile-first, but less override to do, so it's fine */
+@media (max-width: 50em) {
+  .primary-navigation {
+    display: none;
+    position: fixed;
+    
+  }
+
+  .primary-navigation[data-visible] {
+    display: block;
+    position: fixed;
+  }
+  
+  .mobile-nav-toggle {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+    cursor: pointer;
+  }
+  
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
+}
+
+.opened {
+  display: block;
+  position: fixed;
 }
